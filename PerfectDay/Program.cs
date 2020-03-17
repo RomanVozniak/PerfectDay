@@ -24,18 +24,4 @@ namespace PerfectDay
                     webBuilder.UseStartup<Startup>();
                 });
     }
-    public class ApplicationContext : DbContext
-    {
-        public DbSet<Schedule> Schedules { get; set; }
-
-        public ApplicationContext()
-        {
-            Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");
-        }
-    }
 }
