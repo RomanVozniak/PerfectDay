@@ -9,9 +9,10 @@ namespace PerfectDay.Entities
     public class ApplicationContex : DbContext
     {
         public DbSet<Task> Tasks { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=prefrectdaydb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");
         }
     }
 }
