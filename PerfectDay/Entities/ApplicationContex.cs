@@ -9,6 +9,7 @@ namespace PerfectDay.Entities
     public class ApplicationContex : DbContext
     {
         public DbSet<Goal> Goals { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
