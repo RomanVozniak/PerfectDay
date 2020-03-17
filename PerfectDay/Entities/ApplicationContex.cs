@@ -8,8 +8,6 @@ namespace PerfectDay.Entities
 {
     public class ApplicationContex : DbContext
     {
-        public DbSet<User> users { get; set; }
-
         public DbSet<Goal> Goals { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
