@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PerfectDay.Entities;
 
 namespace PerfectDay.Migrations
 {
     [DbContext(typeof(ApplicationContex))]
-    partial class ApplicationContexModelSnapshot : ModelSnapshot
+    [Migration("20200313101746_UserTableCreate")]
+    partial class UserTableCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

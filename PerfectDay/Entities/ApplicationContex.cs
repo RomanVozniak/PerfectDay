@@ -9,6 +9,7 @@ namespace PerfectDay.Entities
     public class ApplicationContex : DbContext
     {
         public DbSet<Goal> goals { get; set; }
+        public DbSet<User> users { get; set; }
 
         public ApplicationContex()
         {
