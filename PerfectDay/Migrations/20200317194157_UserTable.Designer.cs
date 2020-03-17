@@ -9,8 +9,8 @@ using PerfectDay.Entities;
 namespace PerfectDay.Migrations
 {
     [DbContext(typeof(ApplicationContex))]
-    [Migration("20200317150333_UserAndTable")]
-    partial class UserAndTable
+    [Migration("20200317194157_UserTable")]
+    partial class UserTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,24 +19,6 @@ namespace PerfectDay.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("PerfectDay.Entities.Goal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Frequency")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Goals");
-                });
 
             modelBuilder.Entity("PerfectDay.Entities.User", b =>
                 {

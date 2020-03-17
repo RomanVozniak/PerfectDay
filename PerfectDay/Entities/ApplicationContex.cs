@@ -8,14 +8,8 @@ namespace PerfectDay.Entities
 {
     public class ApplicationContex : DbContext
     {
-        public DbSet<Goal> Goals { get; set; }
-
         public DbSet<User> Users { get; set; }
 
-        public ApplicationContex()
-        {
-            
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");
