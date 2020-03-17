@@ -9,8 +9,8 @@ using PerfectDay.Entities;
 namespace PerfectDay.Migrations
 {
     [DbContext(typeof(ApplicationContex))]
-    [Migration("20200317194157_UserTable")]
-    partial class UserTable
+    [Migration("20200317195613_TableUser")]
+    partial class TableUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

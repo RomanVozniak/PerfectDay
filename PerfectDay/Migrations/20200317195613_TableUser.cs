@@ -2,7 +2,7 @@
 
 namespace PerfectDay.Migrations
 {
-    public partial class UserTable : Migration
+    public partial class TableUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
