@@ -9,8 +9,8 @@ using PerfectDay.Entities;
 namespace PerfectDay.Migrations
 {
     [DbContext(typeof(ApplicationContex))]
-    [Migration("20200310215628_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200317150333_UserAndTable")]
+    partial class UserAndTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,37 @@ namespace PerfectDay.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("goals");
+                    b.ToTable("Goals");
+                });
+
+            modelBuilder.Entity("PerfectDay.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Login")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
