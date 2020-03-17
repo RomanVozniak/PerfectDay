@@ -28,6 +28,12 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200317194157_UserTable.cs" />
     <Compile Remove="Migrations\20200317194157_UserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200317195613_TableUser.cs" />
+    <Compile Remove="Migrations\20200317195613_TableUser.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
