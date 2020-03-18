@@ -8,6 +8,7 @@ namespace PerfectDay.Entities
 {
     public class ApplicationContex : DbContext
     {
+        public DbSet<User> Users { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
 
