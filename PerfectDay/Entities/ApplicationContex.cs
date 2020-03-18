@@ -10,6 +10,8 @@ namespace PerfectDay.Entities
     {
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
