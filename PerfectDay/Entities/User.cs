@@ -11,7 +11,7 @@ namespace PerfectDay.Entities
         [Key]
         public int Id { get; set; }
 
-        [Key]
+        [Required]
         public string Login { get; set; }
 
         [Required]
