@@ -39,5 +39,10 @@ namespace PerfectDay.Repositories
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
         }
+
+        public IEnumerable<TEntity> GetAll(TEntity item)
+        {
+            return _context.Set<TEntity>().ToList();
+        }
     }
 }
