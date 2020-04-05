@@ -21,7 +21,10 @@ namespace PerfectDay.Repositories
             _dbSet.Add(item);
             _context.SaveChanges();
         }
-
+        public IEnumerable<TEntity> GetAll()
+        {
+            return _dbSet.AsNoTracking().ToList();
+        }
         public void Delete(TEntity item)
         {
             _dbSet.Remove(item);
