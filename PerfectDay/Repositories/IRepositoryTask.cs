@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public interface IRepository<TEntity>
+    public interface IRepositoryTask<TEntity>
     {
         void Create(TEntity item);
         void Update(TEntity item);
