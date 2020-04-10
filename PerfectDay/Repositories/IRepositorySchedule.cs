@@ -1,0 +1,42 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PerfectDay.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace PerfectDay.Repositories
+{
+    public class IRepositorySchedule<TEntity> : IRepository<TEntity> where TEntity : class
+    {
+        ApplicationContex IRepository;
+        DbSet<TEntity> _dbSet;
+        public IRepositorySchedule(ApplicationContex context)
+        {
+            _dbSet = IRepository.Set<TEntity>();
+        }
+        public void Create(TEntity item)
+        {
+            _dbSet.Add(item);
+            IRepository.SaveChanges();
+        }
+
+        public void Delete(TEntity item)
+        {
+            _dbSet.Remove(item);
+            IRepository.SaveChanges();
+
+        }
+
+        public TEntity FindById(int id)
+        {
+            return _dbSet.Find(id);
+        }
+
+        public void Update(TEntity item)
+        {
+            IRepository.Entry(item).State = EntityState.Modified;
+            IRepository.SaveChanges();
+        }
+    }
+}
