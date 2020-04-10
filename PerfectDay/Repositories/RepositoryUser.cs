@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class IRepositoryGoal<TEntity> : IRepository<TEntity> where TEntity : class
+    public class RepositoryUser<TEntity> : IRepositoryUser<TEntity> where TEntity : class
     {
         ApplicationContex _context;
         DbSet<TEntity> _dbSet;
-        public IRepositoryGoal(ApplicationContex context)
+        public RepositoryUser(ApplicationContex context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
@@ -32,6 +32,11 @@ namespace PerfectDay.Repositories
         public TEntity FindById(int id)
         {
             return _dbSet.Find(id);
+        }
+
+        public IEnumerable<TEntity> GetAll(TEntity item)
+        {
+            return _context.Set<TEntity>().ToList();
         }
 
         public void Update(TEntity item)
