@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class IRepositorySchedule<TEntity> : IRepository<TEntity> where TEntity : class
+    public class RepositorySchedule<TEntity> : IRepository<TEntity> where TEntity : class
     {
         ApplicationContex IRepository;
         DbSet<TEntity> _dbSet;
-        public IRepositorySchedule(ApplicationContex context)
+        public RepositorySchedule(ApplicationContex context)
         {
             _dbSet = IRepository.Set<TEntity>();
         }
