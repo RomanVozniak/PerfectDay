@@ -12,6 +12,7 @@ namespace PerfectDay.Repositories
         private readonly DbSet<TEntity> _dbSet;
         public RepositoryTask(ApplicationContex context) : base(context)
         {
+            _dbSet = context.Set<TEntity>();
         }
         public void Create(TEntity item)
         {
