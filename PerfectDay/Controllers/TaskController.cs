@@ -5,20 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PerfectDay.Repositories;
 using PerfectDay.Entities;
-using AutoMapper;
 
 namespace PerfectDay.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     public class TaskController : ControllerBase
     {
         private readonly IRepositoryTask<Entities.Task> _repositoryTask;
-        private readonly IMapper _mapper;
 
-        public TaskController(IRepositoryTask<Entities.Task> repositoryTask, IMapper mapper)
+        public TaskController(IRepositoryTask<Entities.Task> repositoryTask)
         {
             _repositoryTask = repositoryTask;
-            _mapper = mapper;
         }
         [HttpGet]
         public IEnumerable<Entities.Task> Get()
