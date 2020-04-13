@@ -17,6 +17,11 @@ namespace PerfectDay.Entities
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Goal>().HasData(new Goal { Id = 1, Frequency = 2, Deadline = 3});
+        }
     }
 
 }
