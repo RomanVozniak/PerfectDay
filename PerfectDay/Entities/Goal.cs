@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PerfectDay.Entities
 {
     [Table("Goal")]
-    public class Goal : BaseEntity
+    public class Goal
     {
+        [Key]
+        public int Id { get; set; }
 
         [MaxLength(255)]
         public string Description { get; set; }

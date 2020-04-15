@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryGoal<TEntity> : BaseRepository, IRepositoryGoal<TEntity> where TEntity : BaseEntity
+    public class RepositoryGoal<TEntity> : BaseRepository, IRepositoryGoal<TEntity> where TEntity : Goal
     {
         DbSet<TEntity> _dbSet;
         public RepositoryGoal(ApplicationContex context) : base(context)

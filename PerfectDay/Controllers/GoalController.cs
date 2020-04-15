@@ -34,10 +34,10 @@ namespace PerfectDay.Controllers
                         return BadRequest($"Couldn't find a goal with id: {id}");
                 }
 
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     //logger.critical(ex.message);
-                    return BadRequest("Server error(this is nort correct)");
+                    return BadRequest("Server error(this is not correct)");
                 }
             }
             else
