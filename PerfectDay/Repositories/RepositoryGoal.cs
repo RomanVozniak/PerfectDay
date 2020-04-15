@@ -38,7 +38,7 @@ namespace PerfectDay.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<TEntity> GetAll(TEntity item)
+        public IEnumerable<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
         }
