@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PerfectDay.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryGoal<TEntity> : BaseRepository, IRepositoryGoal<TEntity> where TEntity : class
+    public class RepositoryGoal<TEntity> : BaseRepository, IRepositoryGoal<TEntity> where TEntity : BaseEntity
     {
         DbSet<TEntity> _dbSet;
         public RepositoryGoal(ApplicationContex context) : base(context)
@@ -29,7 +27,7 @@ namespace PerfectDay.Repositories
 
         public TEntity FindById(int id)
         {
-            return _dbSet.Find(id);
+            return _dbSet.FirstOrDefault(e => e.Id == id);
         }
 
         public void Update(TEntity item)

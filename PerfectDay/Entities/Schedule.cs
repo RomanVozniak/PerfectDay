@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Entities
 {
-    public class Schedule
+    public class Schedule : BaseEntity
     {
-        [Key]
-        public int ScheduleId { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
         public TimeSpan availableTime { get; set; }
