@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryTask<TEntity> : BaseRepository, IRepositoryTask<TEntity> where TEntity : class
+    public class RepositoryTask<TEntity> : BaseRepository, IRepositoryTask<TEntity> where TEntity : Entities.Task
     {
         private readonly DbSet<TEntity> _dbSet;
         public RepositoryTask(ApplicationContex context) : base(context)
@@ -32,7 +32,7 @@ namespace PerfectDay.Repositories
 
         public TEntity FindById(int id)
         {
-            return _dbSet.Find(id);
+            return _dbSet.FirstOrDefault(e => e.Id == id);
         }
 
         public void Update(TEntity item)
