@@ -18,6 +18,11 @@ namespace PerfectDay.Entities
         {
             modelBuilder.Entity<Goal>().HasData(new Goal { Id = 1, Frequency = 2, Deadline = 3});
         }
+
+        public ApplicationContex(DbContextOptions<ApplicationContex> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
     }
 
 }
