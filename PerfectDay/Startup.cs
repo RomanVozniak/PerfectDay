@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,8 +26,9 @@ namespace PerfectDay
         {
 
             services.AddControllersWithViews();
-            services.AddDbContext<ApplicationContex>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddScoped<IRepositoryTask<Task>, RepositoryTask<Task>>();
+            services.AddScoped<IRepositoryGoal<Goal>, RepositoryGoal<Goal>>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -63,6 +63,8 @@ namespace PerfectDay
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+
 
             app.UseSpa(spa =>
             {
