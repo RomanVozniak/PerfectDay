@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PerfectDay.Entities
 {
@@ -11,16 +9,16 @@ namespace PerfectDay.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required, MaxLength(100)]
         public string Login { get; set; }
 
-        [Required]
+        [Required, MaxLength(50)]
         public string Password { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(150)]
         public string Name { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(150)]
         public string Surname { get; set; }
 
         [EmailAddress]

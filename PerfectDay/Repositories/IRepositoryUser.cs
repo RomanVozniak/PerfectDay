@@ -10,7 +10,7 @@ namespace PerfectDay.Repositories
         void Create(TEntity item);
         void Update(TEntity item);
         TEntity FindById(int id);
-        IEnumerable<TEntity> GetAll(TEntity item);
         void Delete(TEntity item);
+        IEnumerable<TEntity> GetAll();
     }
 }
