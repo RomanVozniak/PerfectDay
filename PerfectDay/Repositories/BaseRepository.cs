@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using PerfectDay.Entities;
+﻿using PerfectDay.Entities;
 
 namespace PerfectDay.Repositories
 {

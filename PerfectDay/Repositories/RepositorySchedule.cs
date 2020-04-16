@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryTask<TEntity> : BaseRepository, IRepositoryTask<TEntity> where TEntity : class
+    public class RepositorySchedule<TEntity> : BaseRepository, IRepositorySchedule<TEntity> where TEntity : class
     {
-        private readonly DbSet<TEntity> _dbSet;
-        public RepositoryTask(ApplicationContex context) : base(context)
+        DbSet<TEntity> _dbSet;
+        public RepositorySchedule(ApplicationContex context) : base(context)
         {
             _dbSet = context.Set<TEntity>();
         }
@@ -19,14 +19,11 @@ namespace PerfectDay.Repositories
             _dbSet.Add(item);
             _context.SaveChanges();
         }
-        public IEnumerable<TEntity> GetAll()
-        {
-            return _dbSet.AsNoTracking().ToList();
-        }
+
         public void Delete(TEntity item)
         {
             _dbSet.Remove(item);
-            _context.SaveChanges();
+           _context.SaveChanges();
 
         }
 
@@ -35,10 +32,19 @@ namespace PerfectDay.Repositories
             return _dbSet.Find(id);
         }
 
+        public void Remove(TEntity item)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(TEntity item)
         {
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
+        }
+        public IEnumerable<TEntity> GetAll(TEntity item)
+        {
+            return _context.Set<TEntity>().ToList();
         }
     }
 }
