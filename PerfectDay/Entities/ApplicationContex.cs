@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace PerfectDay.Entities
@@ -21,6 +17,11 @@ namespace PerfectDay.Entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Goal>().HasData(new Goal { Id = 1, Frequency = 2, Deadline = 3});
+        }
+
+        public ApplicationContex(DbContextOptions<ApplicationContex> options) : base(options)
+        {
+            Database.EnsureCreated();
         }
     }
 
