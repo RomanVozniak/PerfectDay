@@ -26,7 +26,7 @@ namespace PerfectDay
         {
 
             services.AddControllersWithViews();
-
+            services.AddDbContext<ApplicationContex>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IRepositoryTask<Task>, RepositoryTask<Task>>();
             services.AddScoped<IRepositoryGoal<Goal>, RepositoryGoal<Goal>>();
 
