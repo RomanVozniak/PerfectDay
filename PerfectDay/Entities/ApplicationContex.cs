@@ -18,7 +18,6 @@ namespace PerfectDay.Entities
         {
             Database.EnsureCreated();
         }
-       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");

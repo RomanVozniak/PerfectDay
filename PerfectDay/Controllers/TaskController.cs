@@ -35,7 +35,7 @@ namespace PerfectDay.Controllers
                         if (task != null)
                             return Ok(task);
                         else
-                            return BadRequest($"Couldn't find a goal with id: {id}");
+                            return BadRequest($"Couldn't find a task with id: {id}");
                     }
 
                     catch (Exception ex)
@@ -54,20 +54,21 @@ namespace PerfectDay.Controllers
 
         [Route("/api/{controller}/add")]
         [HttpPost]
-        public IActionResult Add(Entities.Task task)
+        public IActionResult Add([FromBody] Entities.Task task)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Model is not valid");
             }
-            else {
+            else
+            {
                 _repositoryTask.Create(task);
-            return Ok();
+                return Ok();
             }
         }
         [Route("/api/{controller}/update")]
         [HttpPost]
-        public IActionResult Update(Entities.Task task)
+        public IActionResult Update([FromBody] Entities.Task task)
         {
             if (!ModelState.IsValid)
             {
