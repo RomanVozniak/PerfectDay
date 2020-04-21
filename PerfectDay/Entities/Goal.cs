@@ -1,16 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PerfectDay.Entities
 {
+    [Table("Goal")]
     public class Goal
     {
+        [Key]
         public int Id { get; set; }
+
+        [MaxLength(255)]
         public string Description { get; set; }
+
+        [Required]
         public int Frequency { get; set; }
+
+        [Required]
         public int Deadline { get; set; }
-        public string GoalDescription { get; set; }
+
+        public ICollection<User> Users { get; set; }
     }
 }
