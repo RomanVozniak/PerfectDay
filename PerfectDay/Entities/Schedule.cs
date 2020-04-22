@@ -14,7 +14,7 @@ namespace PerfectDay.Entities
         [ForeignKey("User")]
         public int UserId { get; set; }
         public TimeSpan availableTime { get; set; }
-        public char taskSet { get; set; }
+        public string taskSet { get; set; }
         public DateTime day { get; set; }
     }
 }

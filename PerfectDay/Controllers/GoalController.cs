@@ -5,21 +5,21 @@ using PerfectDay.Repositories;
 
 namespace PerfectDay.Controllers
 {
-    [Route("/api/[controller]")]
-    public class ScheduleController : ControllerBase
+    [Route("api/[controller]")]
+    public class GoalController : ControllerBase
     {
-        private readonly IRepositorySchedule<Entities.Schedule> _repositorySchedule;
+        private readonly IRepositoryGoal<Entities.Goal> _repositoryGoal;
 
-        public ScheduleController(IRepositorySchedule<Entities.Schedule> repositorySchedule)
+        public GoalController(IRepositoryGoal<Entities.Goal> repositoryGoal)
         {
-            _repositorySchedule = repositorySchedule;
+            _repositoryGoal = repositoryGoal;
         }
         [HttpGet]
-        public IEnumerable<Entities.Schedule> Get()
+        public IEnumerable<Entities.Goal> Get()
         {
-            return _repositorySchedule.GetAll();
+            return _repositoryGoal.GetAll();
         }
-        [Route("/api/schedules/get/{id}")]
+        [Route("/api/goals/get/{id}")]
         [HttpGet]
         public IActionResult Get(int id)
         {
@@ -27,11 +27,11 @@ namespace PerfectDay.Controllers
             {
                 try
                 {
-                    Entities.Schedule schedule = _repositorySchedule.FindById(id);
-                    if (schedule != null)
-                        return Ok(schedule);
+                    Entities.Goal goal = _repositoryGoal.FindById(id);
+                    if (goal != null)
+                        return Ok(goal);
                     else
-                        return BadRequest($"Couldn't find a schedule with id: {id}");
+                        return BadRequest($"Couldn't find a goal with id: {id}");
                 }
 
                 catch (Exception ex)
@@ -47,7 +47,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/add")]
         [HttpPost]
-        public IActionResult Add([FromBody]Entities.Schedule schedule)
+        public IActionResult Add(Entities.Goal goal)
         {
             if (!ModelState.IsValid)
             {
@@ -55,13 +55,13 @@ namespace PerfectDay.Controllers
             }
             else
             {
-                _repositorySchedule.Create(schedule);
+                _repositoryGoal.Create(goal);
                 return Ok();
             }
         }
         [Route("/api/{controller}/update")]
         [HttpPost]
-        public IActionResult Update([FromBody]Entities.Schedule schedule)
+        public IActionResult Update(Entities.Goal goal)
         {
             if (!ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace PerfectDay.Controllers
             }
             else
             {
-                _repositorySchedule.Update(schedule);
+                _repositoryGoal.Update(goal);
                 return Ok();
             }
         }
@@ -77,9 +77,9 @@ namespace PerfectDay.Controllers
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            Entities.Schedule schedule = _repositorySchedule.FindById(id);
+            Entities.Goal goal = _repositoryGoal.FindById(id);
             if (id <= 0) return BadRequest("Error");
-            _repositorySchedule.Remove(schedule);
+            _repositoryGoal.Delete(goal);
             return Ok();
         }
     }
