@@ -1,15 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using PerfectDay.Entities;
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryUser<TEntity> : BaseRepository, IRepositoryUser<TEntity> where TEntity : User
+    public class RepositoryHistory<TEntity> : BaseRepository, IRepositoryHistory<TEntity> where TEntity : History
     {
         DbSet<TEntity> _dbSet;
-        public RepositoryUser(ApplicationContex context) : base(context)
+        public RepositoryHistory(ApplicationContex context) : base(context)
         {
             _dbSet = context.Set<TEntity>();
         }
@@ -28,7 +29,7 @@ namespace PerfectDay.Repositories
 
         public TEntity FindById(int id)
         {
-            return _dbSet.FirstOrDefault(e => e.Id == id);
+            return _dbSet.Find(id);
         }
 
         public void Update(TEntity item)
@@ -37,7 +38,7 @@ namespace PerfectDay.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<TEntity> GetAll(TEntity item)
         {
             return _context.Set<TEntity>().ToList();
         }

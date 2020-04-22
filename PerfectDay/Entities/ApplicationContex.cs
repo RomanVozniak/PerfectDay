@@ -10,6 +10,7 @@ namespace PerfectDay.Entities
         public DbSet<User> Users { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
 
+
         public ApplicationContex(DbContextOptions<ApplicationContex> options) : base(options)
         {
             Database.EnsureCreated();

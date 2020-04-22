@@ -1,15 +1,16 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PerfectDay.Entities;
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryUser<TEntity> : BaseRepository, IRepositoryUser<TEntity> where TEntity : User
+    public class RepositorySchedule<TEntity> : BaseRepository, IRepositorySchedule<TEntity> where TEntity : class
     {
         DbSet<TEntity> _dbSet;
-        public RepositoryUser(ApplicationContex context) : base(context)
+        public RepositorySchedule(ApplicationContex context) : base(context)
         {
             _dbSet = context.Set<TEntity>();
         }
@@ -22,13 +23,18 @@ namespace PerfectDay.Repositories
         public void Delete(TEntity item)
         {
             _dbSet.Remove(item);
-            _context.SaveChanges();
+           _context.SaveChanges();
 
         }
 
         public TEntity FindById(int id)
         {
-            return _dbSet.FirstOrDefault(e => e.Id == id);
+            return _dbSet.Find(id);
+        }
+
+        public void Remove(TEntity item)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(TEntity item)
@@ -36,8 +42,7 @@ namespace PerfectDay.Repositories
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
         }
-
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<TEntity> GetAll(TEntity item)
         {
             return _context.Set<TEntity>().ToList();
         }

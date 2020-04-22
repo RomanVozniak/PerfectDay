@@ -1,15 +1,14 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PerfectDay.Entities;
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryUser<TEntity> : BaseRepository, IRepositoryUser<TEntity> where TEntity : User
+    public class RepositoryGoal<TEntity> : BaseRepository, IRepositoryGoal<TEntity> where TEntity : Goal
     {
         DbSet<TEntity> _dbSet;
-        public RepositoryUser(ApplicationContex context) : base(context)
+        public RepositoryGoal(ApplicationContex context) : base(context)
         {
             _dbSet = context.Set<TEntity>();
         }
