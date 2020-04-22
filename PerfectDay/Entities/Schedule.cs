@@ -10,7 +10,7 @@ namespace PerfectDay.Entities
     public class Schedule
     {
         [Key]
-        public int ScheduleId { get; set; }
+        public int Id { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
         public TimeSpan availableTime { get; set; }

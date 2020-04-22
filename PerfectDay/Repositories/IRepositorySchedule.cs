@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PerfectDay.Entities
+namespace PerfectDay.Repositories
 {
-    interface IRepositorySchedule<TEntity> where TEntity : class
+    public interface IRepositorySchedule<TEntity> 
     {
         void Create(TEntity item);
         TEntity FindById(int id);
         void Remove(TEntity item);
         void Update(TEntity item);
-        IEnumerable<TEntity> GetAll(TEntity item);
+        IEnumerable<TEntity> GetAll();
     }
 }
