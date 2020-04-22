@@ -77,9 +77,14 @@ namespace PerfectDay.Controllers
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            Entities.User User = _repositoryUser.FindById(id);
-            if (id <= 0) return BadRequest("Error");
-            _repositoryUser.Delete(User);
+            Entities.User User = _repositoryUser.FindById(id); 
+            if (id <= 0) return BadRequest("Invalid Id");
+            if (User != null) { _repositoryUser.Delete(User); }
+            else
+            {
+                return BadRequest("Null object");
+}
+
             return Ok();
         }
     }
