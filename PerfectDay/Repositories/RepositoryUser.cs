@@ -1,16 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using PerfectDay.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public class RepositoryHistory<TEntity> : BaseRepository, IRepositoryHistory<TEntity> where TEntity : History
+    public class RepositoryUser<TEntity> : BaseRepository, IRepositoryUser<TEntity> where TEntity : User
     {
         DbSet<TEntity> _dbSet;
-        public RepositoryHistory(ApplicationContex context) : base(context)
+        public RepositoryUser(ApplicationContex context) : base(context)
         {
             _dbSet = context.Set<TEntity>();
         }
@@ -44,4 +43,3 @@ namespace PerfectDay.Repositories
         }
     }
 }
-

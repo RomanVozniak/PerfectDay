@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace PerfectDay.Repositories
 {
-    public interface IRepositoryGoal<TEntity>
+    public interface IRepositoryUser<TEntity>
     {
         void Create(TEntity item);
         void Update(TEntity item);
         TEntity FindById(int id);
-        void Delete(TEntity item);
         IEnumerable<TEntity> GetAll();
+        void Delete(TEntity item);
     }
 }
