@@ -5,7 +5,7 @@ using PerfectDay.Repositories;
 
 namespace PerfectDay.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     public class HistoryController : ControllerBase
     {
         private readonly IRepositoryHistory<Entities.History> _repositoryHistory;
@@ -47,7 +47,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/add")]
         [HttpPost]
-        public IActionResult Add(Entities.History goal)
+        public IActionResult Add([FromBody]Entities.History goal)
         {
             if (!ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/update")]
         [HttpPost]
-        public IActionResult Update(Entities.History goal)
+        public IActionResult Update([FromBody]Entities.History goal)
         {
             if (!ModelState.IsValid)
             {
