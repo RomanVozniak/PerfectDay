@@ -9,11 +9,12 @@ namespace PerfectDay.Entities
 {
     public class Schedule
     {
+        [Key]
         public int Id { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
         public TimeSpan availableTime { get; set; }
-        public char taskSet { get; set; }
+        public string taskSet { get; set; }
         public DateTime day { get; set; }
     }
 }
