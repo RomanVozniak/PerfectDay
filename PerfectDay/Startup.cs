@@ -30,6 +30,10 @@ namespace PerfectDay
             services.AddScoped<IRepositoryTask<Task>, RepositoryTask<Task>>();
             services.AddScoped<IRepositoryGoal<Goal>, RepositoryGoal<Goal>>();
 
+            services.AddDbContext<ApplicationContex>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IRepositoryUser<User>, RepositoryUser<User>>();
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
