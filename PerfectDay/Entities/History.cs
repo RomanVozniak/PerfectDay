@@ -9,9 +9,6 @@ namespace PerfectDay.Entities
     {   
         [Key]
         public int Id { get; set; }
-
-        [ForeignKey("Goal")]
-        public int GoalId { get; set; }
         public DateTime updateTime { get; set; }
     }
 }

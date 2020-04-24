@@ -29,7 +29,7 @@ namespace PerfectDay.Repositories
 
         public TEntity FindById(int id)
         {
-            return _dbSet.Find(id);
+            return _dbSet.FirstOrDefault(e => e.Id == id);
         }
 
         public void Update(TEntity item)
@@ -44,3 +44,4 @@ namespace PerfectDay.Repositories
         }
     }
 }
+

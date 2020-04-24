@@ -20,6 +20,5 @@ namespace PerfectDay.Entities
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");
         }
-    }
 
 }
