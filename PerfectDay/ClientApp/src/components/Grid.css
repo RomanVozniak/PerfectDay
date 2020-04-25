@@ -1,3 +1,7 @@
-﻿.flex-container {
-    display: flex;
+﻿.week{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.Button{
+    size: 100000px;
 }
