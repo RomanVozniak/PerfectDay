@@ -10,7 +10,10 @@ namespace PerfectDay.Entities
 
         [MaxLength(10), MinLength(3), Required]
         public string Category { get; set; }
-        public string Duration { get; set; }
+        [Required]
+        public DateTime StartDateTime { get; set; }
+        [Required]
+        public DateTime EndDateTime { get; set; }
         [Required]
         public int Frequency { get; set; }
         [MaxLength(100)]
