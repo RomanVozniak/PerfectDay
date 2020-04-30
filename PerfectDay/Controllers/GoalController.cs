@@ -5,7 +5,7 @@ using PerfectDay.Repositories;
 
 namespace PerfectDay.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     public class GoalController : ControllerBase
     {
         private readonly IRepositoryGoal<Entities.Goal> _repositoryGoal;
@@ -47,7 +47,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/add")]
         [HttpPost]
-        public IActionResult Add(Entities.Goal goal)
+        public IActionResult Add([FromBody] Entities.Goal goal)
         {
             if (!ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/update")]
         [HttpPost]
-        public IActionResult Update(Entities.Goal goal)
+        public IActionResult Update([FromBody] Entities.Goal goal)
         {
             if (!ModelState.IsValid)
             {
