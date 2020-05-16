@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-grid-system'
 import axios from 'axios'
 
 import './Grid.css'
+import { NavLink } from 'react-router-dom'
 
 
 const ListOfHours = ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00',
@@ -15,18 +16,18 @@ const ListOfHours = ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:
 
  function checkDay(day, index){
    let event = new Date()
-  if (index == new Date().getDay()-1)
+  if (index == new Date().getDay()) //-1
   {
      return(
        <React.Fragment>
       <strong style={{color: 'FireBrick'}}>{day}</strong>
-      <p>{new Date().getDate()}</p>
+      <p style={{color: 'FireBrick'}}>{new Date().getDate()}</p>
      </React.Fragment>
      )
     }
   else
   {
-    event.setDate(new Date(event.getDate() - (event.getDay() -index-1)))
+    event.setDate(new Date(event.getDate() - (event.getDay() -index))) //-1
     return(
       <React.Fragment>
       <strong>{day}</strong>
@@ -35,7 +36,8 @@ const ListOfHours = ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:
     )
   }
 }
-const ListOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']  
+
+const ListOfDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]//['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']  
   const GridOfDays = ListOfDays.map(day =>{
     return(
         <Col style={{backgroundColor : "MediumPurple"}} xs={1} debug key = {day}>
@@ -47,6 +49,27 @@ const ListOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
     )
   })
 
+  const ListOfDaysInThisWeek = ListOfDays.map(dayInWeek =>{
+    let event = new Date()
+    return event.getDate(event.setDate(new Date(event.getDate() - (event.getDay() -ListOfDays.indexOf(dayInWeek))))) //-1
+  })
+//   function checkHour (tasks, ListOfHours){
+//     var starts = tasks.map(returnStart)
+//     var ends = tasks.map(returnEnd)
+//     for(var i = 0; i < ListOfDaysInThisWeek.length; i++){
+//       if(ListOfDaysInThisWeek[i] == starts.getDate()){
+//         for (var j = 0; j < ListOfHours.length;j++){
+//           // if (j == )
+//         }
+//       }
+//     }
+// }
+// function returnStart(tasks){
+//   return new Date(tasks.startDateTime).toLocaleString()
+// }
+// function returnEnd(tasks){
+//   return new Date(tasks.endDateTime).toLocaleString()
+// }
 export class WeekGrid extends Component {
   state = {
     tasks: [],
@@ -83,10 +106,11 @@ export class WeekGrid extends Component {
         return (
             <Container className="week" fluid>
             {tasksList}
+            {/* {checkHour(this.state.tasks, ListOfHours)} */}
             <p>Current full time is {this.state.curTime}</p>
             <p>Current date is {this.state.curDate}</p>
             <p>Current day is {this.state.DateTime.getDate()}</p>
-            <p>Current day of week is {this.state.DateTime.getDay()}</p>
+            <p>Current day of week is {this.state.DateTime.getDay()} and {ListOfDays[new Date().getDay()]}</p>
             <br/>
             <Row justify="center" debug>
             {GridOfDays}
