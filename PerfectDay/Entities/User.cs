@@ -26,5 +26,7 @@ namespace PerfectDay.Entities
 
         [Phone]
         public string Phone { get; set; }
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
     }
 }

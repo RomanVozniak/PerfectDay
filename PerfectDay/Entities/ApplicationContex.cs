@@ -9,6 +9,7 @@ namespace PerfectDay.Entities
         public DbSet<Task> Tasks { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<History> Histories { get; set; }
 
 
         public ApplicationContex(DbContextOptions<ApplicationContex> options) : base(options)
@@ -21,4 +22,5 @@ namespace PerfectDay.Entities
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=perfectdaydb;Trusted_Connection=True;");
         }
 
+    }
 }

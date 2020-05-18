@@ -11,10 +11,12 @@ namespace PerfectDay.Entities
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("User")]
-        public int UserId { get; set; }
         public TimeSpan availableTime { get; set; }
         public string taskSet { get; set; }
         public DateTime day { get; set; }
+        public ICollection<Goal> Goals { get; set; }
+        public ICollection<Task> Tasks { get; set; }
+        public User User { get; set; }
+
     }
 }

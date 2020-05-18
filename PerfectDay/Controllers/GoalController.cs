@@ -19,7 +19,7 @@ namespace PerfectDay.Controllers
         {
             return _repositoryGoal.GetAll();
         }
-        [Route("/api/goals/get/{id}")]
+        [Route("/api/{controller}/get/{id}")]
         [HttpGet]
         public IActionResult Get(int id)
         {

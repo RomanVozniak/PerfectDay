@@ -12,13 +12,12 @@ namespace PerfectDay.Entities
 
         [MaxLength(255)]
         public string Description { get; set; }
-
-        [Required]
         public int Frequency { get; set; }
-
-        [Required]
         public int Deadline { get; set; }
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
+        public int HistoryId { get; set; }
+        public History History { get; set; }
 
-        public ICollection<User> Users { get; set; }
     }
 }

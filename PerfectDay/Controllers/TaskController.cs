@@ -22,7 +22,7 @@ namespace PerfectDay.Controllers
         {
             return _repositoryTask.GetAll();
         }
-        [Route("/api/tasks/get/{id}")]
+        [Route("/api/{controller}/get/{id}")]
         [HttpGet]
         public IActionResult Get(int id)
         {
