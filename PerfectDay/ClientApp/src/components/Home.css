@@ -1,5 +1,5 @@
 body {
-    background-image: url(./img/start1.jpg);
+    background-image: url(./img/start.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0px ! important;
@@ -16,9 +16,11 @@ body {
 
 .text-mask-white {
     background-color: rgb(255, 255, 255); 
-    background-color: rgba(255, 255, 255, 0.651); 
+    background-color: rgba(156, 156, 156, 0.651); 
     color: black;
     padding: 10px;
+    font-size: large;
+    font-style: italic;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -51,4 +53,11 @@ body {
     bottom: 0;
     width: 100%;
     background-color: black;
+}
+
+.btn-main {
+    background-color: rgb(107, 107, 196);
+    border-color: rgb(57, 129, 158);
+    margin: 15px;
+    font-size: 50px;
 }

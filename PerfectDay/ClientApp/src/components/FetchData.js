@@ -2,58 +2,63 @@ import React, { Component } from 'react';
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
-
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = { forecasts: [], loading: true };
+
+    this.state = {
+      email: "",
+      password: "",
+      password_confirmation: "",
+      registrationErrors: ""
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    this.populateWeatherData();
+  handleChange(event){
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
-  static renderForecastsTable(forecasts) {
-    return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
+  handleSubmit(event){
+    console.log("form submitted")
+    event.preventDefault();
   }
 
   render() {
-    let contents = this.state.loading
-      ? <p><em>Loading...</em></p>
-      : FetchData.renderForecastsTable(this.state.forecasts);
+      return (
+        <div>
+          <form onSubmit = {this.handleSubmit}>
+            <input type = "email" 
+              name = "email" 
+              placeholder = "Email" 
+              value = {this.state.email} 
+              onChange = {this.handleChange} 
+              required
+            />
 
-    return (
-      <div>
-        <h1 id="tabelLabel" >Weather forecast</h1>
-        <p>This component demonstrates fetching data from the server.</p>
-        {contents}
-      </div>
-    );
-  }
+            <input type = "password" 
+              name = "password" 
+              placeholder = "Password" 
+              value = {this.state.password} 
+              onChange = {this.handleChange} 
+              required
+            />
 
-  async populateWeatherData() {
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
+            <input type = "password" 
+              name = "password_confirmation" 
+              placeholder = "Password confirmation" 
+              value = {this.state.password_confirmation} 
+              onChange = {this.handleChange} 
+              required
+            />
+
+            <button type = "submit">Register</button>
+
+          </form>
+        </div>
+      );
   }
 }

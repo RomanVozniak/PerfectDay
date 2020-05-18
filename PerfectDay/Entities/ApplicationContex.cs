@@ -14,7 +14,6 @@ namespace PerfectDay.Entities
 
         public ApplicationContex(DbContextOptions<ApplicationContex> options) : base(options)
         {
-            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
