@@ -1,7 +1,9 @@
 body {
-    background-image: url(./img/start.jpg);
+    background-image: url(./img/start1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0px ! important;
+    padding: 0px ! important;
 }
 
 .text-mask {
@@ -12,9 +14,23 @@ body {
     text-align: center;
 }
 
+.text-mask-white {
+    background-color: rgb(255, 255, 255); 
+    background-color: rgba(255, 255, 255, 0.651); 
+    color: black;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
 .div-content {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
 }
 
 
@@ -27,4 +43,12 @@ body {
 
 .microcontent {
     padding: 20px;
+}
+
+
+.foot-dis {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
 }

@@ -13,13 +13,10 @@ export class Home extends Component {
       </div>
     </div>
     <div className="microcontent">
-      <img src = {require('./img/main-page-intro.jpg')} className = "img-div"></img>
+      <p className="text-mask-white">Text TextTextTextText  TextTextTextText TextTextTextText TextTextTextText TextTextTextText</p>
     </div>
-    
-    </div>
-  
 
-    
-    );
+    </div>
+   );
   }
 }
