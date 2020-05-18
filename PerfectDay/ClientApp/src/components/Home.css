@@ -56,8 +56,8 @@ body {
 }
 
 .btn-main {
-    background-color: rgb(107, 107, 196);
-    border-color: rgb(57, 129, 158);
+    background-color: blue;
+    border-color: blueviolet;
     margin: 15px;
     font-size: 50px;
 }

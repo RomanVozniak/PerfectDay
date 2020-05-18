@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FetchData.css';
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
@@ -29,34 +30,48 @@ export class FetchData extends Component {
 
   render() {
       return (
-        <div>
+        <div class = "myPadding">
           <form onSubmit = {this.handleSubmit}>
-            <input type = "email" 
+            <div className="form-group">
+              <div class = "myLabel">
+                <label className="text-mask">Email</label>
+              </div>
+              <input type = "email" 
               name = "email" 
               placeholder = "Email" 
               value = {this.state.email} 
               onChange = {this.handleChange} 
               required
-            />
+              />
+            </div>
 
-            <input type = "password" 
+            <div className="form-group">
+              <div class = "myLabel">
+                <label className="text-mask">Password</label>
+              </div>
+              <input type = "password" 
               name = "password" 
               placeholder = "Password" 
               value = {this.state.password} 
               onChange = {this.handleChange} 
               required
-            />
+              />
+            </div>
 
-            <input type = "password" 
+            <div className="form-group">
+              <div class = "myLabel">
+              <label className="text-mask">Password confirmation</label>
+              </div>
+              <input type = "password" 
               name = "password_confirmation" 
               placeholder = "Password confirmation" 
               value = {this.state.password_confirmation} 
               onChange = {this.handleChange} 
               required
-            />
+              />
+            </div>
 
             <button type = "submit">Register</button>
-
           </form>
         </div>
       );
