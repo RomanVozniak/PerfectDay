@@ -45,28 +45,6 @@ function GetDayByTheirName(day, index) {
   }
 }
 
-
-  const ListOfDaysInThisWeek = ListOfDays.map(dayInWeek =>{
-    let event = new Date()
-    return event.getDate(event.setDate(new Date(event.getDate() - (event.getDay() -ListOfDays.indexOf(dayInWeek))))) //-1
-  })
-//   function checkHour (tasks, ListOfHours){
-//     var starts = tasks.map(returnStart)
-//     var ends = tasks.map(returnEnd)
-//     for(var i = 0; i < ListOfDaysInThisWeek.length; i++){
-//       if(ListOfDaysInThisWeek[i] == starts.getDate()){
-//         for (var j = 0; j < ListOfHours.length;j++){
-//           // if (j == )
-//         }
-//       }
-//     }
-// }
-// function returnStart(tasks){
-//   return new Date(tasks.startDateTime).toLocaleString()
-// }
-// function returnEnd(tasks){
-//   return new Date(tasks.endDateTime).toLocaleString()
-// }
 export class WeekGrid extends Component {
   state = {
     tasks: [],
@@ -85,17 +63,18 @@ export class WeekGrid extends Component {
     render() {
         const { tasks } = this.state;
         const ListOfDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]//['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']  
+        const ListOfTasks = tasks.map(task => {return task})
         const GridOfDays = ListOfDays.map(day => {
             return (
                 <Col style={{ backgroundColor: "MediumPurple" }} xs={1} debug key={day}>
                     {checkDay(day, ListOfDays.indexOf(day))}
                     <Row>
                         {ListOfHours.map(hour => {
-                            var task = tasks.find((hour, GetDayByTheirName(day, ListOfDays.indexOf(day))) => {
-                            return 
-                                      }
-                                          return (
-                                <Col style={{ backgroundColor: 'BlueViolet' }} debug key={hour}>{hour} {day}</Col>
+                                return (
+                                     <React.Fragment>
+                                        
+                                         <Col style={{ backgroundColor: 'BlueViolet' }} debug key={hour}>{hour}</Col>
+                                     </React.Fragment>
                             )
                         })}
                     </Row>
