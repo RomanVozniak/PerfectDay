@@ -39,7 +39,6 @@ function GetDayByTheirName(day, index) {
       <React.Fragment>
       <strong>{day}</strong>
             <p>{event.getDate()}</p>
-            <p>{event.toLocaleDateString()}</p>
       </React.Fragment>
     )
   }
@@ -66,14 +65,13 @@ export class WeekGrid extends Component {
         const ListOfTasks = tasks.map(task => {return task})
         const GridOfDays = ListOfDays.map(day => {
             return (
-                <Col style={{ backgroundColor: "MediumPurple" }} xs={1} debug key={day}>
+                <Col style={{ backgroundColor: "Seashell" }} xs={1} debug key={day}>
                     {checkDay(day, ListOfDays.indexOf(day))}
                     <Row>
                         {ListOfHours.map(hour => {
                                 return (
                                      <React.Fragment>
-                                        
-                                         <Col style={{ backgroundColor: 'BlueViolet' }} debug key={hour}>{hour}</Col>
+                                         <Col style={{ backgroundColor: 'MintCream' }} debug key={hour}>{hour}</Col>
                                      </React.Fragment>
                             )
                         })}
