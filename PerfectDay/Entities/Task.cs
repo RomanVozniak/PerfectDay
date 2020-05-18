@@ -15,7 +15,7 @@ namespace PerfectDay.Entities
         public int Frequency { get; set; }
         [MaxLength(100)]
         public string Task_Description { get; set; }
-        public int ScheduleId { get; set; }
+        public int? ScheduleId { get; set; }
         public Schedule Schedule { get; set; }
     }
 }
