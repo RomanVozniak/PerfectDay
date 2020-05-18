@@ -47,7 +47,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/add")]
         [HttpPost]
-        public IActionResult Add(Entities.User User)
+        public IActionResult Add([FromBody] Entities.User User)
         {
             if (!ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace PerfectDay.Controllers
         }
         [Route("/api/{controller}/update")]
         [HttpPost]
-        public IActionResult Update(Entities.User User)
+        public IActionResult Update([FromBody] Entities.User User)
         {
             if (!ModelState.IsValid)
             {
